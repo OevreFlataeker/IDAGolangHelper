@@ -13,7 +13,7 @@ class GoSettings(object):
 
     def __init__(self):
         self.storage = {}
-        self.bt_obj = Utils.get_bitness(idc.BeginEA())
+        self.bt_obj = Utils.get_bitness(ida_ida.inf_get_min_ea())
         self.structCreator = Utils.StructCreator(self.bt_obj)
         self.processor = None
         self.typer = None
@@ -125,7 +125,7 @@ class GoSettings(object):
         else:
             beg, end = Firstmoduledata.getTypeinfo(fmd, self.bt_obj)
             self.processor = Types.TypeProcessing(beg, end, self.bt_obj, self)
-        print "%x %x %x" % (beg, end, robase)
+        print ("%x %x %x" % (beg, end, robase))
         for i in self.processor:
             pass
         return

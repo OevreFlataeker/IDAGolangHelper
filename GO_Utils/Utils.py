@@ -95,7 +95,7 @@ class StructCreator(object):
                 idc.SetType(idc.get_member_id(sid, offset), new_type)
 
     def makeStruct(self, i):
-        print "Creating structure %s" % (i[0])
+        print ("Creating structure %s" % (i[0]))
         sid = self.createStruct(i[0])
         self.fillStruct(sid, i[1])
 
